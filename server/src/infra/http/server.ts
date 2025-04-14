@@ -52,6 +52,6 @@ app.register(scalarUI, {
     }
 });
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
     console.log(`HTTP server running! Go to http://localhost:3333/docs to view the documentation`)
 });
