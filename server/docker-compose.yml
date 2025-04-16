@@ -16,16 +16,18 @@ services:
       - app
       - db
 
-  app:
-    build: .
-    depends_on:
-      - db
-    container_name: server
-    restart: unless-stopped
-    ports:
-      - $PORT:$PORT
-    networks:
-      - app
+#  app:
+#    build: .
+#    depends_on:
+#      - db
+#    container_name: server
+#    restart: unless-stopped
+#    ports:
+#      - $PORT:$PORT
+#    environment:
+#      - DATABASE_URL=$DATABASE_URL
+#    networks:
+#      - app
 
 volumes:
   db:
