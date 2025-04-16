@@ -1,6 +1,6 @@
-import { env } from '@/env';
+import { env } from '../../env.ts';
 import { drizzle } from 'drizzle-orm/postgres-js';
-import { schema } from './schemas';
+import { schema } from './schemas/index.ts';
 import postgres from 'postgres';
 
 export const pg = postgres(env.DATABASE_URL)
