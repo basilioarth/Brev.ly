@@ -6,7 +6,7 @@
     "compilerOptions": {
       "lib": ["es2024"],
       "module": "NodeNext",
-      "target": "es2024",
+      "target": "ESNext",
       "allowImportingTsExtensions": true,
       "noEmit": true,
       "strict": true,
