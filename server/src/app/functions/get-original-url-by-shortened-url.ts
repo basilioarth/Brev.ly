@@ -13,7 +13,7 @@ type GetOriginalUrlByShortenedUrlInput = z.input<typeof getOriginalUrlByShortene
 
 export async function getOriginalUrlByShortenedUrl(
     input: GetOriginalUrlByShortenedUrlInput
-): Promise<Either<Error, { originalUrl: string }>> {
+): Promise<Either<RecordNotFound | Error, { originalUrl: string }>> {
     try {
         const result = await db.select().from(schema.urls).where(
             eq(schema.urls.shortenedUrl, input.shortened_url)

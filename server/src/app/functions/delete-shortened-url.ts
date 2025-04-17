@@ -13,7 +13,7 @@ type DeleteShortenedUrlInput = z.input<typeof deleteShortenedUrlInput>;
 
 export async function deleteShortenedUrl(
     input: DeleteShortenedUrlInput
-): Promise<Either<Error, { message: string }>> {
+): Promise<Either<RecordNotFound | Error, { message: string }>> {
     try {
         const result = await db.delete(schema.urls).where(
             eq(schema.urls.id, input.id)

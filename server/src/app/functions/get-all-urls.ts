@@ -3,7 +3,6 @@ import { db } from '../../infra/db/index.ts';
 import { schema } from '../../infra/db/schemas/index.ts';
 import { type Either, makeLeft, makeRight } from '../../shared/either.ts';
 import { z } from 'zod';
-import { RecordNotFound } from './errors/record-not-found.ts';
 
 const getAllUrlsOutput = z.array(
     z.object({
