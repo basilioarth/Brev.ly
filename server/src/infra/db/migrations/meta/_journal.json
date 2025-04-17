@@ -8,6 +8,13 @@
       "when": 1744811939823,
       "tag": "0000_living_moira_mactaggert",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1744929005511,
+      "tag": "0001_harsh_fenris",
+      "breakpoints": true
     }
   ]
 }

@@ -3,12 +3,13 @@ import { uuidv7 } from 'uuidv7'
 
 export const urls = pgTable('urls', {
   id: text('id')
+    .notNull()
     .primaryKey()
     .$defaultFn(() => uuidv7()),
   originalUrl: text('original_url').notNull(),
   shortenedUrl: text('shortened_url').notNull().unique(),
-  accessCount: integer('access_count').default(0),
+  accessCount: integer('access_count').notNull().default(0),
   createdAt: timestamp('created_at')
-    .defaultNow()
-    .notNull(),
+    .notNull()
+    .defaultNow(),
 });

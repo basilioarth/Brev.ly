@@ -1,0 +1,1 @@
+ALTER TABLE "urls" ALTER COLUMN "access_count" SET NOT NULL;
