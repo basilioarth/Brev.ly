@@ -23,6 +23,9 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
                     409: z.object({
                         message: z.string()
                     }).describe('Duplicate shortened url'),
+                    422: z.object({
+                        message: z.string()
+                    }).describe('Badly formatted shortened url'),
                     500: z.object({
                         message: z.string()
                     }).describe('Internal server error'),
@@ -44,7 +47,7 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
     
             switch (error.constructor.name) {
                 case 'BadlyFormattedShortenedURL':
-                    return reply.status(400).send({ message: error.message })
+                    return reply.status(422).send({ message: error.message })
                 case 'ShortenedURLAlreadyExists':
                     return reply.status(409).send({ message: error.message })
             }
