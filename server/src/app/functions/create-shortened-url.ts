@@ -5,17 +5,17 @@ import { z } from 'zod';
 import { BadlyFormattedShortenedURL } from './errors/badly-formatted-shortened-url.ts';
 import { ShortenedURLAlreadyExists } from './errors/shortened-URL-already-exists.ts';
 
-const shortenedUrlInput = z.object({
+const createShortenedUrlInput = z.object({
     original_url: z.string().url().nonempty(),
     shortened_url: z.string().nonempty(),
 });
 
-type ShortenedUrlInput = z.input<typeof shortenedUrlInput>
+type CreateShortenedUrlInput = z.input<typeof createShortenedUrlInput>
 
 export async function createShortenedUrl(
-    input: ShortenedUrlInput
+    input: CreateShortenedUrlInput
 ): Promise<Either<BadlyFormattedShortenedURL | ShortenedURLAlreadyExists, { urlID: string }>> {
-    const { original_url, shortened_url } = shortenedUrlInput.parse(input);
+    const { original_url, shortened_url } = createShortenedUrlInput.parse(input);
 
     const isValidShortenedUrl = /^[a-zA-Z0-9_-]+$/.test(shortened_url);
 

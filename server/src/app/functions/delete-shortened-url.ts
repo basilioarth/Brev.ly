@@ -5,14 +5,14 @@ import { type Either, makeLeft, makeRight } from '../../shared/either.ts';
 import { z } from 'zod';
 import { RecordNotFound } from './errors/record-not-found.ts';
 
-const input = z.object({
+const deleteShortenedUrlInput = z.object({
     id: z.string().uuid()
 });
 
-type Input = z.input<typeof input>;
+type DeleteShortenedUrlInput = z.input<typeof deleteShortenedUrlInput>;
 
 export async function deleteShortenedUrl(
-    input: Input
+    input: DeleteShortenedUrlInput
 ): Promise<Either<Error, { message: string }>> {
     try {
         const result = await db.delete(schema.urls).where(
