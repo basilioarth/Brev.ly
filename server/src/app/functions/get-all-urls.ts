@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm/pg-core/expressions';
+import { desc } from 'drizzle-orm';
 import { db } from '../../infra/db/index.ts';
 import { schema } from '../../infra/db/schemas/index.ts';
 import { type Either, makeLeft, makeRight } from '../../shared/either.ts';
@@ -18,7 +18,7 @@ type GetAllUrlsOutput = z.infer<typeof getAllUrlsOutput>;
 
 export async function getAllUrls(): Promise<Either<Error, { data: GetAllUrlsOutput }>> {
     try {
-        const urls = (await db.select().from(schema.urls));
+        const urls = await db.select().from(schema.urls).orderBy(desc(schema.urls.createdAt));
 
         return makeRight({ data: urls });
     } catch (error) {
