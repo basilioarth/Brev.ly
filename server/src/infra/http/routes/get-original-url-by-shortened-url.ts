@@ -3,8 +3,6 @@ import { z } from 'zod';
 import { getOriginalUrlByShortenedUrl } from '../../../app/functions/get-original-url-by-shortened-url.ts';
 import { isRight, unwrapEither } from '../../../shared/either.ts';
 
-// TODO: MODIFICAR PARA ROUTE PARAMS
-
 export const getOriginalUrlByShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
     server.get(
         '/urls/original-url/:shortened_url',
