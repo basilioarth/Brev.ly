@@ -25,6 +25,6 @@ export async function deleteShortenedUrl(
 
         return makeRight({ message: 'URL deleted successfully' });
     } catch (error) {
-        return makeLeft(new Error('Failed to delete URL'));
+        return makeLeft(error as Error);
     }
 }
