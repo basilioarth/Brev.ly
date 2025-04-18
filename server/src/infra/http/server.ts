@@ -13,6 +13,7 @@ import { deleteShortenedUrlRoute } from "./routes/delete-shortened-url.ts";
 import { getOriginalUrlByShortenedUrlRoute } from "./routes/get-original-url-by-shortened-url.ts";
 import { getAllUrlsRoute } from "./routes/get-all-urls.ts";
 import { incrementUrlAccessCountRoute } from "./routes/increment-url-access-count.ts";
+import { exportUrlsRoute } from "./routes/export-urls.ts";
 
 const app = fastify();
 
@@ -58,10 +59,11 @@ app.register(scalarUI, {
 });
 
 app.register(createShortenedUrlRoute);
-app.register(deleteShortenedUrlRoute);
-app.register(getOriginalUrlByShortenedUrlRoute);
 app.register(getAllUrlsRoute);
+app.register(getOriginalUrlByShortenedUrlRoute);
 app.register(incrementUrlAccessCountRoute);
+app.register(deleteShortenedUrlRoute);
+app.register(exportUrlsRoute);
 
 app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
     console.log(`HTTP server running! Go to http://localhost:3333/docs to view the documentation`)
