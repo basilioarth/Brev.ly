@@ -1,7 +1,7 @@
 FROM node:23.11 AS base
 RUN npm i -g pnpm
 
-FROM base AS dependencies 
+FROM base AS dependencies
 WORKDIR /usr/src/app
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
@@ -12,5 +12,12 @@ COPY . .
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 RUN pnpm build
 RUN pnpm prune --prod
+
+FROM cgr.dev/chainguard/node:latest AS deploy
+USER 1000
+WORKDIR /usr/src/app
+COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/package.json ./package.json
 EXPOSE 3333
-CMD ["node", "--env-file", ".env", "dist/infra/http/server.mjs"]
+CMD ["dist/infra/http/server.mjs"]
