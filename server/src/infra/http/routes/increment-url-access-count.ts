@@ -35,7 +35,7 @@ export const incrementUrlAccessCountRoute: FastifyPluginAsyncZod = async server 
             });
 
             if (isRight(result)) {
-                return reply.status(200).send({ id: unwrapEither(result).id, accessCount: unwrapEither(result).accessCount })
+                return reply.status(200).send({ id: result.right.id, accessCount: result.right.accessCount })
             }
 
             const error = unwrapEither(result)

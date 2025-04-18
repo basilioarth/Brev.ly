@@ -40,7 +40,7 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
             });
     
             if (isRight(result)) {
-                return reply.status(201).send({ urlID: unwrapEither(result).urlID })
+                return reply.status(201).send({ urlID: result.right.urlID })
             }
     
             const error = unwrapEither(result)
