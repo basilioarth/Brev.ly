@@ -1,0 +1,29 @@
+.container {
+  width: 100dvw;
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start; /* Valor a ser alterado para "center" na responsividade */
+  justify-content: flex-start;
+
+  padding: 5.5rem 12.0625rem 0rem 12.0625rem; /* Valor a ser alterado para "0px" na responsidade */
+
+  gap: 32px; /* Valor a ser alterado para "23.71px" na responsividade */
+}
+
+.header img {
+  height: 1.5rem;
+  width: auto;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 19fr 29fr; /* Valor a ser alterado para "1fr 1fr" na responsividade */
+
+  gap: 20px; /* Valor a ser alterado para "12px" na responsividade */
+}
