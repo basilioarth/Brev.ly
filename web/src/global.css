@@ -11,8 +11,16 @@
   --danger: #B12C4D;
 }
 
+:focus { 
+  outline: transparent;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: var(--gray-200);
 }
