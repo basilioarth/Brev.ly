@@ -112,3 +112,28 @@ h1 {
 
     color: var(--gray-400);
 }
+
+@media (max-width: 1020px) {
+    .container {
+        width: 22.875rem;
+        max-height: calc(100dvh - 29.482rem); /* Precisamos validar isso na responsividade */
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        width: 16.563rem;
+        max-height: calc(100dvh - 29.482rem); /* Precisamos validar isso na responsividade */
+    }
+}
+
+@media (max-width: 380px) and (max-height: 700px) {
+    .container {
+        max-height: calc(100dvh - 28rem); /* Precisamos validar isso na responsividade */
+        min-height: auto;
+    }
+
+    .notfoundContent {
+        min-height: auto;
+    }
+}

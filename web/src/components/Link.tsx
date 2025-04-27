@@ -17,7 +17,7 @@ export function Link({ originalUrl, shortenedUrl, accessCount }: LinkProps) {
                 <h2>{originalUrl}</h2>
             </div>
             <div className={styles.actions}>
-                <p>{accessCount} {accessCount > 1 ? "acessos" : "acesso"}</p>
+                <p>{accessCount} {accessCount === 1 ? "acesso" : "acessos"}</p>
                 <div className={styles.buttonsContainer}>
                     <Button className={styles.actionButton}>
                         <Copy className={styles.buttonIcon}/>

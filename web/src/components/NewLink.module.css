@@ -83,3 +83,16 @@ h1 {
 .button:hover {
     background: var(--blue-dark);
 }
+
+@media (max-width: 1020px) {
+    .container {
+        height: 21.75rem;
+        width: 22.875rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        width: 16.563rem;
+    }
+}

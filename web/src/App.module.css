@@ -27,3 +27,28 @@
 
   gap: 1.25rem; /* Valor a ser alterado para "0.75rem" na responsividade */
 }
+
+
+@media (max-width: 1020px) {
+    .container {
+      align-items: center;
+      padding: 2rem 0.75rem 0rem 0.75rem;
+      gap: 1.482rem;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+  .container {
+    overflow: scroll;
+  }
+}

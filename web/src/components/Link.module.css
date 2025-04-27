@@ -29,9 +29,13 @@
 
     padding: 0rem;
     margin: 0rem;
+
+    overflow: hidden;
 }
 
 .title h1 {
+    display: inline-block;
+
     font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;
     line-height: 1.125rem;
@@ -39,14 +43,24 @@
     color: var(--blue-base);
 
     cursor: pointer;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .title h2 {
+    display: inline-block;
+    
     font-family: 'Open Sans', sans-serif;
     font-size: 0.75rem;
     line-height: 1rem;
     font-weight: normal;
     color: var(--gray-500);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .actions {
@@ -56,10 +70,12 @@
     flex-direction: row;
 
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     padding: 0rem;
     margin: 0rem;
+
+    gap: 1.25rem;
 }
 
 .actions p {
@@ -68,6 +84,8 @@
     line-height: 1rem;
     font-weight: normal;
     color: var(--gray-500);
+
+    white-space: nowrap;
 }
 
 .buttonsContainer {
@@ -109,4 +127,20 @@
     padding: 0rem;
 
     color: var(--gray-600);
+}
+
+@media (max-width: 1020px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 1rem;
+    }
+    
+    .actions {
+        gap: 1rem;
+    }
 }
