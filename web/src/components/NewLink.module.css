@@ -1,25 +1,28 @@
 .container {
+    min-height: 21.25rem;
+    height: fit-content;
+    
     display: flex;
     flex-direction: column;
 
     padding: 2rem;
-    gap: 24px;
+    gap: 1.5rem;
 
     background: var(--gray-100);
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
     font-weight: bold;
 }
 
 .label {
     font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 0.625rem;
+    line-height: 0.875rem;
     font-weight: normal;
     text-transform: uppercase;
     color: var(--gray-500);
@@ -32,23 +35,30 @@ h1 {
     padding: 0.938rem 1rem;
 
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
     font-weight: normal;
     color: var(--gray-400);
 
     border: solid;
-    border-width: 1px;
-    border-radius: 8px;
+    border-width: 0.063rem;
+    border-radius: 0.5rem;
     border-color: var(--gray-300);
 }
 
-.input_error {
+.errorText {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
     font-weight: normal;
     color: var(--danger);
+
+    gap: 0.375rem;
+}
+
+.errorIcon {
+    height: 0.875rem;
+    width: 0.875rem;
 }
 
 .button {
@@ -58,8 +68,8 @@ h1 {
     padding: 0.938rem;
 
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
     font-weight: 600;
     color: var(--white);
 
