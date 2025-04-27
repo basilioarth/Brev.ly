@@ -27,7 +27,52 @@ export function MyLinks() {
             originalUrl: "https://www.linkedin.com/in/basilioarth/",
             shortenedUrl: "LinkedIn",
             accessCount: 2,
-        }
+        },
+        {
+            originalUrl: "https://google.com",
+            shortenedUrl: "Google",
+            accessCount: 0,
+        },
+        {
+            originalUrl: "https://rocketseat.com.br",
+            shortenedUrl: "Rocketseat",
+            accessCount: 3,
+        },
+        {
+            originalUrl: "https://www.linkedin.com/in/basilioarth/",
+            shortenedUrl: "LinkedIn",
+            accessCount: 2,
+        },
+        {
+            originalUrl: "https://google.com",
+            shortenedUrl: "Google",
+            accessCount: 0,
+        },
+        {
+            originalUrl: "https://rocketseat.com.br",
+            shortenedUrl: "Rocketseat",
+            accessCount: 3,
+        },
+        {
+            originalUrl: "https://www.linkedin.com/in/basilioarth/",
+            shortenedUrl: "LinkedIn",
+            accessCount: 2,
+        },
+        {
+            originalUrl: "https://google.com",
+            shortenedUrl: "Google",
+            accessCount: 0,
+        },
+        {
+            originalUrl: "https://rocketseat.com.br",
+            shortenedUrl: "Rocketseat",
+            accessCount: 3,
+        },
+        {
+            originalUrl: "https://www.linkedin.com/in/basilioarth/",
+            shortenedUrl: "LinkedIn",
+            accessCount: 2,
+        },
     ]);
 
     return (

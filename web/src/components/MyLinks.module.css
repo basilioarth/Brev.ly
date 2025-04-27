@@ -70,19 +70,26 @@ h1 {
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
-    overflow-y: overlay;
+    overflow-y: auto;
+}
 
+.content {
+    padding-right: 0.5rem;
     scrollbar-color: var(--blue-dark) var(--gray-200);
 }
 
 .content::-webkit-scrollbar-thumb {
-    background: var(--blue-dark); 
+    background: var(--gray-200);
+    color: var(--blue-dark);
     border-radius: 0.25rem;
+    padding-left: 0.5rem;
 }
 
 .notfoundContent {
+    padding-top: 2rem;
+
     border-top: solid;
     border-top-width: 0.063rem;
     border-top-color: var(--gray-200);
