@@ -2,6 +2,7 @@ import styles from './App.module.css';
 import logo from './assets/Logo.svg';
 
 import { NewLink } from './components/NewLink';
+import { MyLinks } from './components/MyLinks';
 
 export function App() {
   return (
@@ -11,7 +12,7 @@ export function App() {
       </div>
       <div className={styles.content}>
         <NewLink />
-        <p>My links</p>
+        <MyLinks />
       </div>
     </main>
   )
