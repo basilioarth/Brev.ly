@@ -64,7 +64,9 @@ export function NewLink() {
 
     return (
         <main className={styles.container}>
-            <h1>Novo link</h1>
+            <header>
+                <h1>Novo link</h1>
+            </header>
             <VStack gap={4} align="stretch">
                 <Field.Root invalid>
                     <Field.Label className={styles.label}>
@@ -78,7 +80,7 @@ export function NewLink() {
                         onChange={handleInputChange}
                     />
                     {errors.originalLink && (
-                        <Field.ErrorText className={styles.input_error}>
+                        <Field.ErrorText className={styles.errorText}>
                             <Warning /> {errors.originalLink}
                         </Field.ErrorText>
                     )}
@@ -95,7 +97,7 @@ export function NewLink() {
                         onChange={handleInputChange}
                     />
                     {errors.shortenedLink && (
-                        <Field.ErrorText className={styles.input_error}>
+                        <Field.ErrorText className={styles.errorText}>
                             <Warning /> {errors.shortenedLink}
                         </Field.ErrorText>
                     )}
