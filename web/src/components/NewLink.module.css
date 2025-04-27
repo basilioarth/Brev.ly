@@ -46,6 +46,10 @@ h1 {
     border-color: var(--gray-300);
 }
 
+.input.filled {
+    color: var(--gray-600);
+}
+
 .errorText {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;

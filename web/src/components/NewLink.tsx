@@ -73,7 +73,9 @@ export function NewLink() {
                         Link Original
                     </Field.Label>
                     <Input
-                        className={styles.input}
+                        className={`${styles.input} ${
+                            formData.originalLink ? styles.filled : ''
+                        }`}
                         name="originalLink"
                         placeholder="www.exemplo.com.br"
                         value={formData.originalLink}
@@ -90,7 +92,9 @@ export function NewLink() {
                         Link Encurtado
                     </Field.Label>
                     <Input
-                        className={styles.input}
+                        className={`${styles.input} ${
+                            formData.shortenedLink ? styles.filled : ''
+                        }`}
                         name="shortenedLink"
                         placeholder={prefix}
                         value={`${prefix}${formData.shortenedLink}`}
