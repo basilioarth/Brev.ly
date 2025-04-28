@@ -16,6 +16,21 @@ interface LinkProps {
 export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) {
     const { removeLink } = useLinksStore();
 
+    const handleCopyToClipboard = async () => {
+        try {
+            await navigator.clipboard.writeText(`http://localhost:5173/${shortenedUrl}`);
+            toaster.success({
+                title: "Link copiado para a área de transferência!",
+                type: 'success',
+            });
+          } catch (err: any) {
+            toaster.error({
+                title: "Erro ao copiar o link para a área de transferência",
+                type: 'error',
+            });
+          }
+    }
+
     const handleDeleteLink = async () => {
         try {
             await deleteLink(id);
@@ -41,7 +56,7 @@ export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) 
             <div className={styles.actions}>
                 <p>{accessCount} {accessCount === 1 ? "acesso" : "acessos"}</p>
                 <div className={styles.buttonsContainer}>
-                    <Button className={styles.actionButton}>
+                    <Button className={styles.actionButton} onClick={handleCopyToClipboard}>
                         <Copy className={styles.buttonIcon}/>
                     </Button>
                     <Button className={styles.actionButton} onClick={handleDeleteLink}>
