@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { Warning } from 'phosphor-react';
 import { createNewLink } from '../http/services/createNewLink';
 import { toaster } from "./ui/toaster";
-
+import { useLinksStore } from '../store/linksStore';
 
 import styles from './NewLink.module.css';
 import validator from 'validator';
 
 export function NewLink() {
+    const { addLink } = useLinksStore();
     const [formData, setFormData] = useState({
         originalLink: '',
         shortenedLink: '',
@@ -60,7 +61,7 @@ export function NewLink() {
             setIsLoading(true);
 
             try {
-                await createNewLink(
+                const newLink = await createNewLink(
                     /^https?:\/\//i.test(formData.originalLink) ? formData.originalLink : `https://${formData.originalLink}`, 
                     formData.shortenedLink
                 );
@@ -69,6 +70,8 @@ export function NewLink() {
                     title: "Link criado com sucesso!",
                     type: "success"
                 });
+
+                addLink(newLink)
             } catch(error: any) {
                 toaster.error({
                     title: error.message,
