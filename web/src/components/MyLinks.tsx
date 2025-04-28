@@ -55,6 +55,7 @@ export function MyLinks() {
                     {linksList.map((link) => (
                         <Link
                             key={link.id}
+                            id={link.id}
                             originalUrl={link.originalUrl}
                             shortenedUrl={link.shortenedUrl}
                             accessCount={link.accessCount}
