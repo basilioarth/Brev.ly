@@ -1,6 +1,10 @@
 import { Field, Input, Button, VStack } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { Warning } from 'phosphor-react';
+import { createNewLink } from '../http/services/createNewLink';
+import { toaster } from "./ui/toaster";
+
+
 import styles from './NewLink.module.css';
 import validator from 'validator';
 
@@ -14,6 +18,8 @@ export function NewLink() {
         shortenedLink: '',
     });
     const [hasFullFilledRequiredFields, setHasFullFilledRequiredFields] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    
     const prefix = 'brev.ly/';
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,12 +55,29 @@ export function NewLink() {
         return isValid;
     };
     
-    const handleSubmitNewLink = () => {
+    const handleSubmitNewLink = async () => {
         if (validateFormInputs()) {
-            console.log("Formulário válido!");
-        } else {
-            console.log('Formulário inválido. Corrija os erros.');
-        }
+            setIsLoading(true);
+
+            try {
+                await createNewLink(
+                    /^https?:\/\//i.test(formData.originalLink) ? formData.originalLink : `https://${formData.originalLink}`, 
+                    formData.shortenedLink
+                );
+                
+                toaster.success({
+                    title: "Link criado com sucesso!",
+                    type: "success"
+                });
+            } catch(error: any) {
+                toaster.error({
+                    title: error.message,
+                    type: "error"
+                })
+            }
+
+            setIsLoading(false);
+        } 
     };
     
     useEffect(() => {
@@ -111,7 +134,11 @@ export function NewLink() {
                     onClick={handleSubmitNewLink}
                     disabled={!hasFullFilledRequiredFields}
                 >
-                    Salvar link
+                    {isLoading ? 
+                        "Salvando..."
+                    :
+                        "Salvar link"
+                    }
                 </Button>
             </VStack>
         </main>

@@ -1,79 +1,13 @@
 import { Button } from '@chakra-ui/react';
 import { DownloadSimple, Link as LinkIcon } from 'phosphor-react';
 import { useState } from 'react';
+import { Link as LinkType } from '../interfaces/Link';
 import { Link } from "./Link";
 
 import styles from './MyLinks.module.css';
 
-interface Link {
-    originalUrl: string;
-    shortenedUrl: string;
-    accessCount: number;
-}
-
 export function MyLinks() {
-    const [linksList, setLinksList] = useState<Link[]>([
-        {
-            originalUrl: "https://google.com",
-            shortenedUrl: "Google",
-            accessCount: 0,
-        },
-        {
-            originalUrl: "https://rocketseat.com.br",
-            shortenedUrl: "Rocketseat",
-            accessCount: 3,
-        },
-        {
-            originalUrl: "https://www.linkedin.com/in/basilioarth/",
-            shortenedUrl: "LinkedIn",
-            accessCount: 2,
-        },
-        {
-            originalUrl: "https://google.com",
-            shortenedUrl: "Google",
-            accessCount: 0,
-        },
-        {
-            originalUrl: "https://rocketseat.com.br",
-            shortenedUrl: "Rocketseat",
-            accessCount: 3,
-        },
-        {
-            originalUrl: "https://www.linkedin.com/in/basilioarth/",
-            shortenedUrl: "LinkedIn",
-            accessCount: 2,
-        },
-        {
-            originalUrl: "https://google.com",
-            shortenedUrl: "Google",
-            accessCount: 0,
-        },
-        {
-            originalUrl: "https://rocketseat.com.br",
-            shortenedUrl: "Rocketseat",
-            accessCount: 3,
-        },
-        {
-            originalUrl: "https://www.linkedin.com/in/basilioarth/",
-            shortenedUrl: "LinkedIn",
-            accessCount: 2,
-        },
-        {
-            originalUrl: "https://google.com",
-            shortenedUrl: "Google",
-            accessCount: 0,
-        },
-        {
-            originalUrl: "https://rocketseat.com.br",
-            shortenedUrl: "Rocketseat",
-            accessCount: 3,
-        },
-        {
-            originalUrl: "https://www.linkedin.com/in/basilioarth/",
-            shortenedUrl: "LinkedIn",
-            accessCount: 2,
-        },
-    ]);
+    const [linksList, setLinksList] = useState<LinkType[]>([]);
 
     return (
         <main className={styles.container}>
