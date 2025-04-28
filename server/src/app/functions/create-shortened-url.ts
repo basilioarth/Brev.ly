@@ -14,7 +14,13 @@ type CreateShortenedUrlInput = z.input<typeof createShortenedUrlInput>
 
 export async function createShortenedUrl(
     input: CreateShortenedUrlInput
-): Promise<Either<BadlyFormattedShortenedURL | ShortenedURLAlreadyExists, { urlID: string }>> {
+): Promise<Either<BadlyFormattedShortenedURL | ShortenedURLAlreadyExists, { 
+    id: string, 
+    originalUrl: string, 
+    shortenedUrl: string, 
+    accessCount: number, 
+    createdAt: Date 
+}>> {
     const { original_url, shortened_url } = createShortenedUrlInput.parse(input);
 
     const isValidShortenedUrl = /^[a-zA-Z0-9_-]+$/.test(shortened_url);
@@ -27,9 +33,21 @@ export async function createShortenedUrl(
         const result = await db.insert(schema.urls).values({
             originalUrl: original_url,
             shortenedUrl: shortened_url
-        }).returning({ id: schema.urls.id });
+        }).returning({ 
+            id: schema.urls.id,
+            originalUrl: schema.urls.originalUrl,
+            shortenedUrl: schema.urls.shortenedUrl,
+            accessCount: schema.urls.accessCount,
+            createdAt: schema.urls.createdAt
+        });
 
-        return makeRight({ urlID: result[0].id });
+        return makeRight({
+            id: result[0].id,
+            originalUrl: result[0].originalUrl,
+            shortenedUrl: result[0].shortenedUrl,
+            accessCount: result[0].accessCount,
+            createdAt: result[0].createdAt
+         });
     } catch (error) {
         if (
             error instanceof Error &&

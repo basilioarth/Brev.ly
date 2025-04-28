@@ -15,7 +15,11 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
                 }),
                 response: {
                     201: z.object({
-                        urlID: z.string().uuid().describe('New url ID')
+                        id: z.string().uuid().describe('New url ID'),
+                        originalUrl: z.string().url().describe('New original url'),
+                        shortenedUrl: z.string().describe('New shortened url'),
+                        accessCount: z.number().describe('New access count'),
+                        createdAt: z.string().describe('New creation date')
                     }).describe('Url created'),
                     400: z.object({
                         message: z.string()
@@ -40,7 +44,13 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
             });
     
             if (isRight(result)) {
-                return reply.status(201).send({ urlID: result.right.urlID })
+                return reply.status(201).send({ 
+                    id: result.right.id,
+                    originalUrl: result.right.originalUrl,
+                    shortenedUrl: result.right.shortenedUrl,
+                    accessCount: result.right.accessCount,
+                    createdAt: result.right.createdAt.toISOString()
+                })
             }
     
             const error = unwrapEither(result)
