@@ -3,7 +3,6 @@ import { Copy, Trash } from 'phosphor-react';
 import { deleteLink } from '../http/services/deleteLink';
 import { toaster } from './ui/toaster';
 import { useLinksStore } from '../store/linksStore';
-import { useNavigate } from 'react-router-dom';
 
 import styles from './Link.module.css';
 
@@ -16,15 +15,14 @@ interface LinkProps {
 
 export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) {
     const { removeLink } = useLinksStore();
-    const navigate = useNavigate();
 
     const handleClickOnShortenedLink = async () => {
-        navigate(`/${shortenedUrl}`);
+        window.open(`${window.location.href}${shortenedUrl}`, '_blank')
     }
 
     const handleCopyToClipboard = async () => {
         try {
-            await navigator.clipboard.writeText(`http://localhost:5173/${shortenedUrl}`);
+            await navigator.clipboard.writeText(`${window.location.href}${shortenedUrl}`);
             toaster.success({
                 title: "Link copiado para a área de transferência!",
                 type: 'success',
