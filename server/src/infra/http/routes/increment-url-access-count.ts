@@ -5,12 +5,12 @@ import { isRight, unwrapEither } from '../../../shared/either.ts';
 
 export const incrementUrlAccessCountRoute: FastifyPluginAsyncZod = async server => {
     server.patch(
-        '/urls/increment-access-count/:id',
+        '/urls/increment-access-count/:shortenedUrl',
         {
             schema: {
-                summary: 'Increment the access count of an url by the given id',
+                summary: 'Increment the access count of an url by the given shortenedUrl',
                 params: z.object({
-                    id: z.string().uuid(),
+                    shortenedUrl: z.string().nonempty(),
                 }),
                 response: {
                     200: z.object({
@@ -31,7 +31,7 @@ export const incrementUrlAccessCountRoute: FastifyPluginAsyncZod = async server 
         },
         async (request, reply) => {
             const result = await incrementUrlAccessCount({
-                id: request.params.id
+                shortenedUrl: request.params.shortenedUrl
             });
 
             if (isRight(result)) {

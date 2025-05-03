@@ -5,18 +5,18 @@ import { type Either, makeLeft, makeRight } from '../../shared/either.ts';
 import { z } from 'zod';
 import { RecordNotFound } from './errors/record-not-found.ts';
 
-const deleteShortenedUrlInput = z.object({
-    id: z.string().uuid()
+const deleteUrlInput = z.object({
+    shortenedUrl: z.string().nonempty(),
 });
 
-type DeleteShortenedUrlInput = z.input<typeof deleteShortenedUrlInput>;
+type DeleteUrlInput = z.input<typeof deleteUrlInput>;
 
-export async function deleteShortenedUrl(
-    input: DeleteShortenedUrlInput
+export async function deleteUrl(
+    input: DeleteUrlInput
 ): Promise<Either<RecordNotFound | Error, { message: string }>> {
     try {
         const result = await db.delete(schema.urls).where(
-            eq(schema.urls.id, input.id)
+            eq(schema.urls.shortenedUrl, input.shortenedUrl)
         ).returning();
 
         if(result.length === 0) {

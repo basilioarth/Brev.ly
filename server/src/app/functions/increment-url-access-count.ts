@@ -8,7 +8,7 @@ import type { AnyColumn } from 'drizzle-orm';
 import { sql } from 'drizzle-orm';
 
 const incrementUrlAccessInput = z.object({
-    id: z.string().uuid(),
+    shortenedUrl: z.string().nonempty(),
 });
 
 type IncrementUrlAccessInput = z.input<typeof incrementUrlAccessInput>;
@@ -24,7 +24,7 @@ export async function incrementUrlAccessCount(
         const result = await db
             .update(schema.urls)
             .set({ accessCount: increment(schema.urls.accessCount) })
-            .where(eq(schema.urls.id, input.id))
+            .where(eq(schema.urls.shortenedUrl, input.shortenedUrl))
             .returning({
                 id: schema.urls.id,
                 access_count: schema.urls.accessCount,

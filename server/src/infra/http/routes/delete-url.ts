@@ -1,16 +1,16 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod';
 import { z } from 'zod';
-import { deleteShortenedUrl } from '../../../app/functions/delete-shortened-url.ts';
+import { deleteUrl } from '../../../app/functions/delete-url.ts';
 import { isRight, unwrapEither } from '../../../shared/either.ts';
 
-export const deleteShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
+export const deleteUrlRoute: FastifyPluginAsyncZod = async server => {
     server.delete(
-        '/urls/:id',
+        '/urls/:shortenedUrl',
         {
             schema: {
-                summary: 'Delete a shortened url',
+                summary: 'Delete a url by the given shortenedUrl',
                 params: z.object({
-                    id: z.string().uuid()
+                    shortenedUrl: z.string().nonempty(),
                 }),
                 response: {
                     204: z.null().describe('Url deleted'),
@@ -28,8 +28,8 @@ export const deleteShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
         },
         async (request, reply) => {
 
-            const result = await deleteShortenedUrl({
-                id: request.params.id
+            const result = await deleteUrl({
+                shortenedUrl: request.params.shortenedUrl
             });
 
             if (isRight(result)) {
