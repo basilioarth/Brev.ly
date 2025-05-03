@@ -37,21 +37,6 @@ export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) 
           }
     }
 
-    const handleCopyToClipboard = async () => {
-        try {
-            await navigator.clipboard.writeText(`http://localhost:5173/${shortenedUrl}`);
-            toaster.success({
-                title: "Link copiado para a área de transferência!",
-                type: 'success',
-            });
-          } catch (err: any) {
-            toaster.error({
-                title: "Erro ao copiar o link para a área de transferência",
-                type: 'error',
-            });
-          }
-    }
-
     const handleDeleteLink = async () => {
         try {
             await deleteLink(id);
