@@ -1,0 +1,17 @@
+.container {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 0rem 0.75rem 0rem 0.75rem;
+}
+
+@media (max-width: 295px) {
+    .container {
+        overflow: scroll;
+    }
+}
