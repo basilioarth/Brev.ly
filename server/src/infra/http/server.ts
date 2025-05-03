@@ -8,8 +8,8 @@ import {
     jsonSchemaTransform,
 } from "fastify-type-provider-zod";
 import scalarUI  from "@scalar/fastify-api-reference";
-import { createShortenedUrlRoute } from "./routes/create-shortened-url.ts";
-import { deleteShortenedUrlRoute } from "./routes/delete-shortened-url.ts";
+import { createUrlRoute } from "./routes/create-url.ts";
+import { deleteUrlRoute } from "./routes/delete-url.ts";
 import { getOriginalUrlByShortenedUrlRoute } from "./routes/get-original-url-by-shortened-url.ts";
 import { getAllUrlsRoute } from "./routes/get-all-urls.ts";
 import { incrementUrlAccessCountRoute } from "./routes/increment-url-access-count.ts";
@@ -59,11 +59,11 @@ app.register(scalarUI, {
     }
 });
 
-app.register(createShortenedUrlRoute);
+app.register(createUrlRoute);
 app.register(getAllUrlsRoute);
 app.register(getOriginalUrlByShortenedUrlRoute);
 app.register(incrementUrlAccessCountRoute);
-app.register(deleteShortenedUrlRoute);
+app.register(deleteUrlRoute);
 app.register(exportUrlsRoute);
 
 app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {

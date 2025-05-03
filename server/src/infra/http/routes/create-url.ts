@@ -1,9 +1,9 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod';
 import { z } from 'zod';
-import { createShortenedUrl } from '../../../../src/app/functions/create-shortened-url.ts';
+import { createUrl } from '../../../app/functions/create-url.ts';
 import { isRight, unwrapEither } from '../../../shared/either.ts';
 
-export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
+export const createUrlRoute: FastifyPluginAsyncZod = async server => {
     server.post(
         '/urls',
         {
@@ -38,7 +38,7 @@ export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
         },
         async (request, reply) => {
 
-            const result = await createShortenedUrl({
+            const result = await createUrl({
                 original_url: request.body.original_url,
                 shortened_url: request.body.shortened_url
             });
