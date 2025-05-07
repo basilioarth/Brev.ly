@@ -1,5 +1,6 @@
 import { PassThrough, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
+import { desc } from 'drizzle-orm';
 import { db, pg } from '../../infra/db/index.ts';
 import { schema } from '../../infra/db/schemas/index.ts';
 import { uploadFileToStorage } from '../../infra/storage/upload-file-to-storage.ts';
@@ -21,6 +22,7 @@ export async function exportUrls(): Promise<Either<Error, ExportUrlsOutput>> {
       createdAt: schema.urls.createdAt,
     })
     .from(schema.urls)
+    .orderBy(desc(schema.urls.createdAt))
     .toSQL()
 
   const cursor = pg.unsafe(sql, params as string[]).cursor()
