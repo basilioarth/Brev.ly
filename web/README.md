@@ -1,15 +1,87 @@
-- [X]  Deve ser possível criar um link
-    - [X]  Não deve ser possível criar um link com encurtamento mal formatado
-    - [X]  Não deve ser possível criar um link com encurtamento já existente
-- [X]  Deve ser possível deletar um link
-- [X]  Deve ser possível obter a URL original por meio do encurtamento
-- [X]  Deve ser possível listar todas as URL’s cadastradas
-- [X]  Deve ser possível incrementar a quantidade de acessos de um link
-- [X]  Deve ser possível baixar um CSV com o relatório dos links criados
+# 🔗 **Brev.ly Web**
 
-Além disso, também temos algumas regras importantes específicas para o front-end:
+---
 
-- [ ]  É obrigatória a criação de uma aplicação React no formato SPA utilizando o Vite como `bundler`;
-- [ ]  Siga o mais fielmente possível o layout do Figma;
-- [ ]  Trabalhe com elementos que tragam uma boa experiência ao usuário (`empty state`, ícones de carregamento, bloqueio de ações a depender do estado da aplicação);
-- [ ]  Foco na responsividade: essa aplicação deve ter um bom uso tanto em desktops quanto em celulares.
+## 📘 **Sobre o Projeto**
+
+O **Brev.ly** é uma aplicação FullStack para o gerenciamento de links encurtados. Ela permite o cadastro, listagem e remoção de links encurtados, geração de relatório dos acessos de cada link e também o redirecionamento correto do link encurtado para o link original. A seguir, temos um detalhamento sobre o que é preciso para executar o front-end da aplicação.
+
+---
+
+## 📂 **Arquitetura dos Diretórios**
+
+A estrutura de pastas do projeto está organizada da seguinte forma:
+
+```
+web/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── http/
+│   ├── interfaces/
+│   ├── pages/
+│   ├── store/
+│   ├── App.tsx
+│   ├── global.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
+---
+
+## 🛠️ **Pré-requisitos**
+
+Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados:
+
+- [Node.js](https://nodejs.org/) (versão 23.x ou superior)
+- [pnpm](https://pnpm.io/installation)
+- Um editor de código, como [Visual Studio Code](https://code.visualstudio.com/)
+
+---
+
+## ⚙️ **Instalando Dependências**
+
+Siga os passos abaixo para configurar o ambiente:
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/basilioarth/Brev.ly.git
+   ```
+
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd Brev.ly/web
+   ```
+
+3. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+---
+
+## 🚀 **Iniciando a Aplicação**
+
+Para iniciar a aplicação, execute o seguinte comando:
+
+```bash
+pnpm run start
+```
+
+A aplicação estará disponível em `http://localhost:4173/`. Para utilizá-la plenamente, certifique-se de que o back-end está executando corretamente. Para isso, siga as instruções contidas em `Brev.ly/server/README.md`.
+
+---
+
+### 🎉 Conclusão
+
+Parabéns! Agora você está pront@ para explorar o front-end do **Brev.ly** 💻✨.
