@@ -1,14 +1,78 @@
-## Funcionalidades e Regras
+# 🔗 **Brev.ly Server**
 
-- [X]  Deve ser possível criar um link
-    - [X]  Não deve ser possível criar um link com URL encurtada mal formatada
-    - [X]  Não deve ser possível criar um link com URL encurtada já existente
-- [X]  Deve ser possível deletar um link
-- [x]  Deve ser possível obter a URL original por meio de uma URL encurtada
-- [X]  Deve ser possível listar todas as URL’s cadastradas
-- [X]  Deve ser possível incrementar a quantidade de acessos de um link
-- [X]  Deve ser possível exportar os links criados em um CSV
-    - [X]  Deve ser possível acessar o CSV por meio de uma CDN (Amazon S3, Cloudflare R2, etc)
-    - [X]  Deve ser gerado um nome aleatório e único para o arquivo
-    - [X]  Deve ser possível realizar a listagem de forma performática
-    - [X]  O CSV deve ter campos como, URL original, URL encurtada, contagem de acessos e data de criação.
+---
+
+## 📘 **Sobre o Projeto**
+
+O **Brev.ly** é uma aplicação FullStack para o gerenciamento de links encurtados. Ela permite o cadastro, listagem e remoção de links encurtados, geração de relatório dos acessos de cada link e também o redirecionamento correto do link encurtado para o link original. A seguir, temos um detalhamento sobre o que é preciso para executar o back-end da aplicação.
+
+---
+
+## 📂 **Arquitetura dos Diretórios**
+
+A estrutura de pastas do projeto está organizada da seguinte forma:
+
+```
+server/
+├── docker/
+├── src/
+│   ├── app/functions
+│   ├── infra/
+│   ├── shared/
+│   └── env.ts
+├── .dockerignore
+├── docker-compose.yml
+├── Dockerfile
+├── drizzle.config.ts
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── tsconfig.json
+└── tsup.config.ts
+```
+
+---
+
+## 🛠️ **Pré-requisitos**
+
+Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados:
+
+- [Docker](https://www.docker.com/get-started/) (versão 27.x ou superior)
+
+---
+
+## ⚙️ **Instalando Dependências**
+
+Siga os passos abaixo para configurar o ambiente:
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/basilioarth/Brev.ly.git
+   ```
+
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd Brev.ly/server
+   ```
+
+3. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+---
+
+## 🚀 **Iniciando a Aplicação**
+
+Para iniciar a aplicação, execute o seguinte comando:
+
+```bash
+docker compose up -d
+```
+
+A aplicação estará disponível em `http://localhost:3333/`. A documentação pode ser acessada em `http://localhost:3333/docs`.
+
+---
+
+### 🎉 Conclusão
+
+Parabéns! Agora você está pront@ para explorar o backend-end do **Brev.ly** 💻✨.
