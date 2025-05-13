@@ -1,10 +1,4 @@
-# 🔗 **Brev.ly Web**
-
----
-
-## 📘 **Sobre o Projeto**
-
-O **Brev.ly** é uma aplicação FullStack para o gerenciamento de links encurtados. Ela permite o cadastro, listagem e remoção de links encurtados, geração de relatório dos acessos de cada link e também o redirecionamento correto do link encurtado para o link original. A seguir, temos um detalhamento sobre o que é preciso para executar o front-end da aplicação.
+# 🖥️ **Brev.ly Web**
 
 ---
 
