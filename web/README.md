@@ -40,7 +40,6 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados:
 
 - [Node.js](https://nodejs.org/) (versão 23.x ou superior)
 - [pnpm](https://pnpm.io/installation)
-- Um editor de código, como [Visual Studio Code](https://code.visualstudio.com/)
 
 ---
 
