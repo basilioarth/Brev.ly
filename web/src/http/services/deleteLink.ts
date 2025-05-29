@@ -1,8 +1,8 @@
 import apiClient from "../api";
 
-export async function deleteLink(linkId: string): Promise<void> {
+export async function deleteLink(shortenedUrl: string): Promise<void> {
     try {
-        await apiClient.delete(`/urls/${linkId}`);
+        await apiClient.delete(`/urls/${shortenedUrl}`);
     } catch (error: any) {
         throw error;
     }

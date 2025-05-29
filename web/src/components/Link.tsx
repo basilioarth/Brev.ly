@@ -13,7 +13,7 @@ interface LinkProps {
     accessCount: number;
 }
 
-export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) {
+export function Link({ originalUrl, shortenedUrl, accessCount }: LinkProps) {
     const { removeLink } = useLinksStore();
 
     const handleClickOnShortenedLink = async () => {
@@ -37,8 +37,8 @@ export function Link({ id, originalUrl, shortenedUrl, accessCount }: LinkProps) 
 
     const handleDeleteLink = async () => {
         try {
-            await deleteLink(id);
-            removeLink(id);
+            await deleteLink(shortenedUrl);
+            removeLink(shortenedUrl);
             toaster.success({
                 title: "Link deletado com sucesso!",
                 type: 'success',

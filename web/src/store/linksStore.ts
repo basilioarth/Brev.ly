@@ -6,7 +6,7 @@ import { Link } from '../interfaces/Link';
 interface LinksState {
     linksList: Link[];
     addLink: (newLink: Link) => void;
-    removeLink: (linkId: string) => void;
+    removeLink: (shortenedUrl: string) => void;
     incrementLinkAccessCount: (shortenedUrl: string) => void;
     setLinksList: (links: Link[]) => void;
 }
@@ -22,9 +22,9 @@ export const useLinksStore = create(
                         linksList: [newLink, ...state.linksList],
                     })),
 
-                removeLink: (linkId) =>
+                removeLink: (shortenedUrl) =>
                     set((state) => ({
-                        linksList: state.linksList.filter((link) => link.id !== linkId),
+                        linksList: state.linksList.filter((link) => link.shortenedUrl !== shortenedUrl),
                     })),
 
                 incrementLinkAccessCount: (shortenedUrl) =>
