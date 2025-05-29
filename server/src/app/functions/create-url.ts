@@ -23,7 +23,7 @@ export async function createUrl(
 }>> {
     const { original_url, shortened_url } = createUrlInput.parse(input);
 
-    const isValidShortenedUrl = /^[a-zA-Z0-9_-]+$/.test(shortened_url);
+    const isValidShortenedUrl = /^[a-z0-9_-]+$/.test(shortened_url);
 
     if (!isValidShortenedUrl) {
         return makeLeft(new BadlyFormattedShortenedURL());

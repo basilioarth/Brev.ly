@@ -45,10 +45,10 @@ export function NewLink() {
             isValid = false;
         }
         
-        const shortenedLinkRegex = /^[a-zA-Z0-9-]+$/;
+        const shortenedLinkRegex = /^[a-z0-9-]+$/;
 
         if (!shortenedLinkRegex.test(formData.shortenedLink)) {
-            newErrors.shortenedLink = 'O link encurtado não deve conter espaços em branco e nem caracteres especiais.';
+            newErrors.shortenedLink = 'O link encurtado não deve conter letras maiúsculas, nem espaços em branco e nem caracteres especiais.';
             isValid = false;
         }
         
