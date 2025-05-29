@@ -15,6 +15,8 @@ server/
 │   ├── shared/
 │   └── env.ts
 ├── .dockerignore
+├── .env.example
+├── .gitignore
 ├── docker-compose.yml
 ├── Dockerfile
 ├── drizzle.config.ts
